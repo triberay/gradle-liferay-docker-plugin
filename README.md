@@ -4,3 +4,10 @@ a simple plugin to use docker in a Liferay Workspace
 
 
 work in progress
+
+
+to do:
+* documentation
+* parameterize the gradle tasks
+* create init tasks -> generate docker-compose.yaml if it doesn't exist yet
+
