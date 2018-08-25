@@ -1,9 +1,8 @@
+group = 'com.triberay'
+version = '0.1'
 
 apply plugin: 'java-gradle-plugin'
 apply plugin: 'maven-publish'
-
-group = 'com.triberay'
-version = '0.1'
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.java
@@ -23,6 +22,7 @@ publishing {
 
             artifact sourcesJar
             artifact javadocJar
+
         }
     }
 }
