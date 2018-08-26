@@ -9,19 +9,18 @@ public class LiferayDockerPlugin implements Plugin<Project> {
 
     public void apply(Project project) {
 
-        project.getExtensions().add("docker", new DockerPluginExtension());
+        project.getExtensions().add("liferayDocker", new LiferayDockerPluginExtension());
 
-        /*project.getTasks().create("init", DockerCompose.class, (task) -> {
-            task.setBundleDirPath("init");
+        project.getTasks().create("init", InitTask.class, (task) -> {
             task.setGroup(TASKGROUP);
-        });*/
+        });
 
-        project.getTasks().create("startDockerEnv", DockerCompose.class, (task) -> {
+        project.getTasks().create("startDockerEnv", DockerComposeTask.class, (task) -> {
             task.setGroup(TASKGROUP);
             task.setArgs(new String[]{"up", "-d"});
         });
 
-        project.getTasks().create("stopDockerEnv", DockerCompose.class, (task) -> {
+        project.getTasks().create("stopDockerEnv", DockerComposeTask.class, (task) -> {
             task.setGroup(TASKGROUP);
             task.setArgs(new String[]{"down"});
         });

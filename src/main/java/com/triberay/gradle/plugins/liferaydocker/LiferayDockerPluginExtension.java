@@ -1,6 +1,6 @@
 package com.triberay.gradle.plugins.liferaydocker;
 
-public class DockerPluginExtension {
+public class LiferayDockerPluginExtension {
 
     private String bundleDirPath = "./bundles";
 
@@ -10,7 +10,7 @@ public class DockerPluginExtension {
 
     private String dockerComposeExecutable = "docker-compose";
 
-    public DockerPluginExtension() {
+    public LiferayDockerPluginExtension() {
     }
 
     public String getBundleDirPath() {
