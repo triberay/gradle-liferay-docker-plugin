@@ -1,8 +1,20 @@
 group = 'com.triberay'
 version = '0.1'
 
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.gradle.publish:plugin-publish-plugin:0.10.0"
+    }
+}
+
 apply plugin: 'java-gradle-plugin'
-apply plugin: 'maven-publish'
+apply plugin: "com.gradle.plugin-publish"
+apply plugin: "maven-publish"
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.java
@@ -22,7 +34,26 @@ publishing {
 
             artifact sourcesJar
             artifact javadocJar
+        }
+    }
+}
+gradlePlugin {
+    plugins {
+        liferayDockerPlugin {
+            id = 'com.triberay.gradle.plugins.liferay-docker'
+            implementationClass = 'com.triberay.gradle.plugins.liferaydocker.LiferayDockerPlugin'
+        }
+    }
+}
+pluginBundle {
+    website = 'http://www.triberay.com/'
+    vcsUrl = 'https://github.com/triberay/gradle-liferay-docker-plugin'
+    tags = ['liferay', 'liferay-portal', 'docker']
 
+    plugins {
+        liferayDockerPlugin {
+            displayName = 'Liferay Docker Plugin'
+            description = 'a simple gradle plugin to use docker in a Liferay Workspace'
         }
     }
 }

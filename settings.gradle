@@ -1,2 +1,2 @@
-rootProject.name='gradle-liferay-docker-plugin'
+rootProject.name='com.triberay.gradle.plugins.liferay-docker'
 enableFeaturePreview('STABLE_PUBLISHING')
