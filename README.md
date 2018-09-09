@@ -2,3 +2,5 @@
 
 a simple gradle plugin to quickly setup and start using docker in a Liferay Workspace
 
+
+(at the moment) Gradle 4 or higher is required.
